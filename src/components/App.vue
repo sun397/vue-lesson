@@ -26,6 +26,7 @@
         <p>foot slot</p>
       </template>
     </child-component>
+    <button @click="toggleShow">toggle isShow</button>
     <hr>
     <p v-if="id === 1">1</p>
     <template v-else-if="id === 2">
@@ -94,10 +95,7 @@
       </div>
     </form>
     <hr>
-    <counter
-      :count="count"
-      @increment="incrementCount"
-    ></counter>
+    <counter></counter>
     <hr>
     <input type="text" v-model="inputText">
     <p>computed: {{ getUpperCaseText }}</p>
@@ -146,7 +144,6 @@ export default {
       },
       isShow: true,
       id: 2,
-      count: 0,
       inputText: '',
       classObject: {
         'is-green': true,
@@ -209,6 +206,9 @@ export default {
     },
     changeTextSize() {
       this.$set(this.classObject, 'is-large', true);
+    },
+    toggleShow() {
+      this.isShow = !this.isShow;
     },
     updateText() {
       this.$set(this.categories, 1, 'Vue.js');

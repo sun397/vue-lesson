@@ -9,6 +9,12 @@
 
 <script>
   export default {
+    beforeDestroy() {
+      console.log('beforedestroy');
+    },
+    destroy() {
+      console.log('destroy');
+    },
     props: {
       title: {
         type: String,
